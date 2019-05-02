@@ -1,0 +1,260 @@
+header{
+    width: 100%;
+    height: 12%;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+    top: 0;
+    left: 0;
+    clear: both;
+    position: absolute;
+    text-align: left;
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 110%;
+    line-height: normal;
+    color: #787575;
+}
+
+.containerTop{
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.topLogo{
+    margin-left: 1%;
+    position: absolute;
+    width: 8%;
+    height: 100%;
+    float: left;
+}
+
+.topLogo img{
+    height: 100%;
+}
+
+.navBar{
+    position: absolute;
+    width: 77%;
+    height: 100%;
+    float: right;
+    margin-left: 23%;
+    display: flex;
+    padding-bottom: 0;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.mainNav{
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    display: flex;
+    margin-right: 2%;
+    flex-direction: row;
+    justify-content: flex-end;
+    text-align: center;
+}
+
+.mainNav li{
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    margin-bottom: auto;
+    margin-top: auto;
+}
+
+.navLinks{
+    text-decoration: none;
+    color: #787575;
+    margin-left: 40px;
+}
+
+li .navLinks:hover {
+    color: #545151;
+    font-weight: bold;
+}
+
+.my-breadcrumb{
+    margin-top: 12vh;
+    height: 3vh;
+    width: 100%;
+}
+
+.my-breadcrumb p{
+    font-family: 'Roboto Mono', monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.containerContent{
+    height: 100%;
+    width: 100%;
+    background: #AD3232;
+    margin-top: 2vh;
+}
+
+.welcomeMsg p{
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-style: normal;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+.options{
+    width: 80%;
+    height: 5vh;
+    margin-left: 10%;
+    margin-top: 5vh;
+}
+
+.grid{
+    display: grid;
+    height: 100%;
+}
+
+.grid-template{
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.grid-template-rows{
+    grid-template-rows: 20% 20% 20% 20%;
+    background: #FFFFFF;
+    color: black;
+    margin: auto;
+    border: 0 solid #ad3232;
+    border-right-width: 5px;
+}
+
+.options{
+    background: #946E6E;
+}
+
+.options button{
+    display: block;
+    height: 100%;
+    text-align: center;
+    border: none;
+    background: #8E1818;
+}
+
+.options button:hover{
+    height: 90%;
+}
+
+.content{
+    width: 80%;
+    height: 35vh;
+    margin-left: 10%;
+    margin-top: 5vh;
+    text-align: center;
+    font-family: 'Roboto Mono', monospace;
+    font-style: normal;
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+.content p{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    display: inline-grid;
+}
+
+.col{
+    height: 100%;
+    margin: 0;
+}
+
+.col2{
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+    color: #000000;
+}
+
+.buttonCircle1, .buttonCircle2{
+    height: 50%;
+    width: 100%;
+}
+
+.btn {
+    text-decoration: none;
+    height: 8vw;
+    width: 8vw;
+    border-radius: 50%;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col .fa-shopping-cart:before, .fa-pen:before, .fa-times:before {
+    color: black;
+}
+
+.btnCircleShop {
+    float: top;
+    background: #946E6E;
+}
+
+#btnCircleEdit, #btnCircleRemove{
+    float: bottom;
+    background: #946E6E;
+}
+
+.ingredient{
+    margin-top: 2%;
+    text-align: right;
+    margin-right: 15%;
+    font-size: 45%;
+}
+
+footer{
+    width: 100vw;
+    height: 5%;
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+    clear: both;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: right;
+    font-family: Roboto, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1vw;
+    line-height: normal;
+    color: #787575;
+    flex-direction: row;
+}
+
+.containerBottom{
+    width: 100vw;
+    height: 100%;
+    position: fixed;
+
+}
+
+.containerBottom p{
+    height: 100%;
+    font-weight: bold;
+    margin-right: 2%;
+}
+
+body{
+    height: 100%;
+    background: #AD3232;
+}
