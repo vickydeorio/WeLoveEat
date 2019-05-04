@@ -1,3 +1,5 @@
+var orderVO = {};
+
 $(document).ready(function () {
     $("#edit").hide();
     $("#menuOptions").hide();
@@ -5,8 +7,9 @@ $(document).ready(function () {
     $("#btnCircleEdit").click(function () {
         $("#menuOptions").hide();
         $("#edit").show();
-        getIngredients();
-    })
+        /*getIngredients();*/
+        configEditPage();
+    });
 
 
     $("#btnCircleRemove").click(function () {
@@ -49,6 +52,11 @@ function configOptions() {
     });
 }
 
+function configEditPage() {
+    $("")
+    $("#orderEditPrice").text("R$ "+ orderVO.price.toFixed(2));
+}
+
 function updateOrder(order) {
     $.ajax({
         type: "POST",
@@ -60,7 +68,6 @@ function updateOrder(order) {
         timeout: 600000,
         success: function success(data) {
             $("#orderName").replace("[name]", data.name);
-            alert("nome: "+ data.name);
             $("#menuIngredients").text(data.price);
         },
         error: function error (data) {
@@ -80,14 +87,18 @@ function getOrder(name) {
         cache: false,
         timeout: 600000,
         success: function success(data) {
+            orderVO = data;
+
             /* Adiciona o nome do pedido */
             $("#orderName").text(data.name);
             $("#orderName").append("<i class=\"fas fa-hamburger fa-5x\"></i>");
 
             /* Adiciona os ingredientes do pedido */
             var ingredients = "Contém : ";
-            for(var i = 0; i++; i <= data.ingredientsList.size()){
-                ingredients += data.ingredientsList[i].ingredientVO.name + ", ";
+            for(var i = 0; i < data.ingredientsList.length; i++){
+                if(orderVO.ingredientsList[i].quatity > 0) {
+                    ingredients += data.ingredientsList[i].ingredientVO.name + ", ";
+                }
             }
             ingredients += "feitos no capricho!";
             $("#menuIngredients").text(ingredients);

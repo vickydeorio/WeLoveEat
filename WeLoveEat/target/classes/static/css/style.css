@@ -85,7 +85,8 @@ li .navLinks:hover {
     width: 100%;
 }
 
-.my-breadcrumb p{
+.label p{
+    height: 2vw;
     font-family: 'Roboto Mono', monospace;
     font-style: normal;
     font-weight: normal;
