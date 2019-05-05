@@ -12,6 +12,7 @@ public class OrderVO implements Serializable {
     private String name;
     private Integer id;
     private BigDecimal price;
+    private List<String> promotions;
 
     public OrderVO(String name, Integer id){
         setName(name);
@@ -96,5 +97,13 @@ public class OrderVO implements Serializable {
 
     public void setIngredientsList(List<IngredientOrderVO> ingredientsList) {
         this.ingredientsList = ingredientsList;
+    }
+
+    public List<String> getPromotions() {
+        return promotions;
+    }
+
+    public void setPromotions(List<String> promotions) {
+        this.promotions = promotions;
     }
 }

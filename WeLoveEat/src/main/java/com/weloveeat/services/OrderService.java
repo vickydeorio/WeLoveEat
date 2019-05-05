@@ -38,7 +38,7 @@ public class OrderService {
     public void calculate(OrderVO order) {
         BigDecimal num;
         BigDecimal sum = BigDecimal.valueOf(0);
-        ArrayList<String> promo = hasPromotion(order);
+        order.setPromotions(hasPromotion(order));
         IngredientVO hamburguer = getIngredient("hambúrguer de carne", null);
         IngredientVO queijo = getIngredient("queijo", null);
 
@@ -48,7 +48,7 @@ public class OrderService {
                 BigDecimal qtd = BigDecimal.valueOf(ingredient.getQuantity());
 
                 //Se o lanche participa da promoção plus e o ingrediente atual é um hambúrguer de carne ou um queijo
-                if( promo.contains("plus") && (ingredient.equals(hamburguer) || ingredient.equals(queijo))){
+                if( order.getPromotions().contains("plus") && (ingredient.equals(hamburguer) || ingredient.equals(queijo))){
                     //Multiplica-se a quantidade por 2/3
                     qtd = qtd.multiply(BigDecimal.valueOf(2/3));
                     //Obtem-se o valor absoluto
@@ -62,7 +62,7 @@ public class OrderService {
                 sum = sum.add(num);
             }
             //Se o pedido participa da promoção "light", multiplica-se o valor total por 90%
-            sum = (promo.contains("light")) ? sum.multiply(BigDecimal.valueOf(0.90)): sum;
+            sum = (order.getPromotions().contains("light")) ? sum.multiply(BigDecimal.valueOf(0.90)): sum;
         }
 
         order.setPrice(sum);
