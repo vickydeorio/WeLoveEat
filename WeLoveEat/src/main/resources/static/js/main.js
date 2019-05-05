@@ -39,7 +39,6 @@ $(document).ready(function () {
     });
 
     configOptions();
-
 });
 
 function configOptions() {
@@ -53,8 +52,20 @@ function configOptions() {
 }
 
 function configEditPage() {
-    $("")
     $("#orderEditPrice").text("R$ "+ orderVO.price.toFixed(2));
+
+    var ingredients = "Contém : ";
+    for(var i = 0; i < orderVO.ingredientsList.length; i++){
+        if(orderVO.ingredientsList[i].quantity > 0) {
+            ingredients += orderVO.ingredientsList[i].ingredientVO.name + ", ";
+        }
+
+        var ingName = orderVO.ingredientsList[i].ingredientVO.name;
+        var ingQuantity = orderVO.ingredientsList[i].quantity;
+        $(".ingredient"+i).prepend(ingName+'<input type="number" id="'+i+'" name="'+ingName+'" value="'+ingQuantity+'" />');
+    }
+    ingredients += "feitos no capricho!";
+    $("#orderIngredients").text(ingredients);
 }
 
 function updateOrder(order) {
@@ -96,7 +107,7 @@ function getOrder(name) {
             /* Adiciona os ingredientes do pedido */
             var ingredients = "Contém : ";
             for(var i = 0; i < data.ingredientsList.length; i++){
-                if(orderVO.ingredientsList[i].quatity > 0) {
+                if(orderVO.ingredientsList[i].quantity > 0) {
                     ingredients += data.ingredientsList[i].ingredientVO.name + ", ";
                 }
             }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class IngredientOrderVO implements Serializable {
     private IngredientVO ingredientVO;
-    private Integer quatity;
+    private Integer quantity;
 
     public IngredientVO getIngredientVO() {
         return ingredientVO;
@@ -14,12 +14,12 @@ public class IngredientOrderVO implements Serializable {
         this.ingredientVO = ingredientVO;
     }
 
-    public Integer getQuatity() {
-        return quatity;
+    public Integer getQuantity() {
+        return quantity;
     }
 
-    public void setQuatity(Integer quatity) {
-        this.quatity = quatity;
+    public void setQuantity(Integer quatity) {
+        this.quantity = quatity;
     }
 
     public boolean equals(IngredientVO ingredientVO){

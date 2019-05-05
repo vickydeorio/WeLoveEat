@@ -30,7 +30,7 @@ public class OrderVO implements Serializable {
     public void addIngredient(Integer quantity, IngredientVO ingredient){
         IngredientOrderVO ingredientOrderVO = new IngredientOrderVO();
         ingredientOrderVO.setIngredientVO(ingredient);
-        ingredientOrderVO.setQuatity(quantity);
+        ingredientOrderVO.setQuantity(quantity);
 
         getIngredientsList().add(ingredientOrderVO);
     }
@@ -55,7 +55,7 @@ public class OrderVO implements Serializable {
         if(quantity > 0) {
             for (IngredientOrderVO ingredientOrderVO : ingredientsList) {
                 if (ingredientOrderVO.equals(ingredient)) {
-                    ingredientOrderVO.setQuatity(quantity);
+                    ingredientOrderVO.setQuantity(quantity);
                     isAdd = true;
                 }
             }

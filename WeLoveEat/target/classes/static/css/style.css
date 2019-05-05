@@ -224,6 +224,10 @@ li .navLinks:hover {
     font-size: 45%;
 }
 
+.ingredient input{
+    width: 50%;
+}
+
 footer{
     width: 100vw;
     height: 5%;

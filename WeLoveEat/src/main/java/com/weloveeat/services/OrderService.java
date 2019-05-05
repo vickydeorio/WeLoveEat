@@ -15,9 +15,9 @@ import java.util.List;
 @Service
 public class OrderService {
     @Autowired
-    private OrderDAO orderDAO;
+    OrderDAO orderDAO;
     @Autowired
-    private IngredientDAO ingredientDAO;
+    IngredientDAO ingredientDAO;
 
     public void addIngredient(Integer quantity, IngredientVO ingredient, OrderVO order) {
         order.addIngredient(quantity, ingredient);
@@ -45,7 +45,7 @@ public class OrderService {
         if (order != null){
             for (IngredientOrderVO ingredient: order.getIngredientsList()) {
                 //Qtd recebe a quantidade do ingrediente no pedido
-                BigDecimal qtd = BigDecimal.valueOf(ingredient.getQuatity());
+                BigDecimal qtd = BigDecimal.valueOf(ingredient.getQuantity());
 
                 //Se o lanche participa da promoção plus e o ingrediente atual é um hambúrguer de carne ou um queijo
                 if( promo.contains("plus") && (ingredient.equals(hamburguer) || ingredient.equals(queijo))){
@@ -81,7 +81,7 @@ public class OrderService {
 
         if (order != null){
             for (IngredientOrderVO ingredient: order.getIngredientsList()) {
-                if( (ingredient.equals(hamburguer) || ingredient.equals(queijo)) && (ingredient.getQuatity() >= 3) ){
+                if( (ingredient.equals(hamburguer) || ingredient.equals(queijo)) && (ingredient.getQuantity() >= 3) ){
                     ret.add("plus");
                 }else if(ingredient.equals(bacon)) {
                     containBacon = true;
