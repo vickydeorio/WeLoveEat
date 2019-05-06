@@ -10,12 +10,9 @@ import java.util.ArrayList;
 @Component
 public class OrderDAO {
     ArrayList<OrderVO> allOptions;
-    @Autowired
-    IngredientDAO ingredients;
 
     public OrderDAO(){
         allOptions = new ArrayList<OrderVO>();
-        //ingredients = new IngredientDAO();
     }
 
     @PostConstruct
@@ -24,6 +21,7 @@ public class OrderDAO {
     }
 
     public void menuOptions(){
+        IngredientDAO ingredients = new IngredientDAO();
         Integer logicLim = 0;
 
         OrderVO xBacon = new OrderVO("X-Bacon", logicLim);
@@ -68,11 +66,13 @@ public class OrderDAO {
     }
 
     public OrderVO getOptionByName(String name) {
+        if(allOptions.size() == 0)
+            menuOptions();
+
         for (OrderVO option: allOptions) {
             if (option.getName().trim().toLowerCase().equals(name.trim().toLowerCase()))
                 return option;
         }
-
         return null;
     }
 

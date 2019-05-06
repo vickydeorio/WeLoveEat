@@ -63,7 +63,6 @@ function test(val, name) {
         if(orderVO.ingredientsList[i].ingredientVO.name == name)
             newOrderVO.ingredientsList[i].quantity = val;
     }
-    alert("qtd = "+val);
 
     updateOrder(newOrderVO);
 }
@@ -101,6 +100,12 @@ function updateOrder(order) {
         timeout: 600000,
         success: function success(data) {
             configEditPage(data);
+
+            if(data.promotions.length > 0){
+                for(var i = 0; i < data.promotions.length; i++){
+                    alert("Você está participando da promoção: " + data.promotions[0]);
+                }
+            }
         },
         error: function error (data) {
             alert("Algo deu errado!")

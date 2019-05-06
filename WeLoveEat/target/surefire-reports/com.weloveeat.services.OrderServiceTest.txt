@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: com.weloveeat.services.OrderServiceTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 4, Errors: 4, Skipped: 0, Time elapsed: 0.249 s <<< FAILURE! - in com.weloveeat.services.OrderServiceTest
+promoMuitaCarne(com.weloveeat.services.OrderServiceTest)  Time elapsed: 0.165 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[7.5]> but was:<[0.00]>
+	at com.weloveeat.services.OrderServiceTest.promoMuitaCarne(OrderServiceTest.java:95)
+
+customizedOrderPrice(com.weloveeat.services.OrderServiceTest)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<15.4[000000000000003552713678800500929355621337890625]> but was:<15.4[]>
+	at com.weloveeat.services.OrderServiceTest.customizedOrderPrice(OrderServiceTest.java:79)
+
+xEggBaconMenuPrice(com.weloveeat.services.OrderServiceTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.weloveeat.services.OrderServiceTest.xEggBaconMenuPrice(OrderServiceTest.java:63)
+
+xBurgerMenuPrice(com.weloveeat.services.OrderServiceTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.weloveeat.services.OrderServiceTest.xBurgerMenuPrice(OrderServiceTest.java:43)
+
+xEggMenuPrice(com.weloveeat.services.OrderServiceTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.weloveeat.services.OrderServiceTest.xEggMenuPrice(OrderServiceTest.java:53)
+
+promoLight(com.weloveeat.services.OrderServiceTest)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<4.41[0000000000000142108547152020037174224853515625]> but was:<4.41[]>
+	at com.weloveeat.services.OrderServiceTest.promoLight(OrderServiceTest.java:125)
+
+xBaconMenuPrice(com.weloveeat.services.OrderServiceTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.weloveeat.services.OrderServiceTest.xBaconMenuPrice(OrderServiceTest.java:31)
+
+promoMuitoQueijo(com.weloveeat.services.OrderServiceTest)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[6]> but was:<[0.00]>
+	at com.weloveeat.services.OrderServiceTest.promoMuitoQueijo(OrderServiceTest.java:110)
+

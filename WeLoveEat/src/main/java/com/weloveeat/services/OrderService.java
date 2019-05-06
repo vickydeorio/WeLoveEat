@@ -38,7 +38,7 @@ public class OrderService {
     public void calculate(OrderVO order) {
         BigDecimal num;
         BigDecimal sum = BigDecimal.valueOf(0);
-        order.setPromotions(hasPromotion(order));
+        hasPromotion(order);
         IngredientVO hamburguer = getIngredient("hambúrguer de carne", null);
         IngredientVO queijo = getIngredient("queijo", null);
 
@@ -48,9 +48,9 @@ public class OrderService {
                 BigDecimal qtd = BigDecimal.valueOf(ingredient.getQuantity());
 
                 //Se o lanche participa da promoção plus e o ingrediente atual é um hambúrguer de carne ou um queijo
-                if( order.getPromotions().contains("plus") && (ingredient.equals(hamburguer) || ingredient.equals(queijo))){
+                if( (order.getPromotions().contains("maisCarne") && ingredient.equals(hamburguer)) || (order.getPromotions().contains("maisQueijo") && ingredient.equals(queijo)) ){
                     //Multiplica-se a quantidade por 2/3
-                    qtd = qtd.multiply(BigDecimal.valueOf(2/3));
+                    qtd = BigDecimal.valueOf(qtd.floatValue() * 2/3);
                     //Obtem-se o valor absoluto
                     qtd = BigDecimal.valueOf(Math.abs(qtd.floatValue()));
                 }
@@ -63,12 +63,13 @@ public class OrderService {
             }
             //Se o pedido participa da promoção "light", multiplica-se o valor total por 90%
             sum = (order.getPromotions().contains("light")) ? sum.multiply(BigDecimal.valueOf(0.90)): sum;
+
+            order.setPrice(sum);
         }
 
-        order.setPrice(sum);
     }
 
-    public ArrayList<String> hasPromotion(OrderVO order){
+    public void hasPromotion(OrderVO order){
         ArrayList<String> ret = new ArrayList<String>();
 
         IngredientVO hamburguer = getIngredient("hambúrguer de carne", null);
@@ -81,11 +82,13 @@ public class OrderService {
 
         if (order != null){
             for (IngredientOrderVO ingredient: order.getIngredientsList()) {
-                if( (ingredient.equals(hamburguer) || ingredient.equals(queijo)) && (ingredient.getQuantity() >= 3) ){
-                    ret.add("plus");
-                }else if(ingredient.equals(bacon)) {
+                if( ingredient.getIngredientVO().equals(hamburguer) && (ingredient.getQuantity() >= 3) ){
+                    ret.add("maisCarne");
+                }else if(ingredient.getIngredientVO().equals(queijo) && (ingredient.getQuantity() >= 3) ){
+                    ret.add("maisQueijo");
+                }else if(ingredient.getIngredientVO().equals(bacon) && ingredient.getQuantity() > 0) {
                     containBacon = true;
-                }else if(ingredient.equals(alface)){
+                }else if(ingredient.getIngredientVO().equals(alface) && ingredient.getQuantity() > 0){
                     containAlface = true;
                 }
             }
@@ -94,9 +97,8 @@ public class OrderService {
                 ret.add("light");
             }
 
-            return ret;
+            order.setPromotions(ret);
         }
-        return null;
     }
 
     public ArrayList<IngredientVO> getAllIngredients() {
