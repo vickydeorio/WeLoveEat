@@ -48,7 +48,7 @@ public class OrderService {
                 BigDecimal qtd = BigDecimal.valueOf(ingredient.getQuantity());
 
                 //Se o lanche participa da promoção plus e o ingrediente atual é um hambúrguer de carne ou um queijo
-                if( (order.getPromotions().contains("maisCarne") && ingredient.equals(hamburguer)) || (order.getPromotions().contains("maisQueijo") && ingredient.equals(queijo)) ){
+                if( (order.getPromotions().contains("maisCarne") && ingredient.compareTo(hamburguer)) || (order.getPromotions().contains("maisQueijo") && ingredient.compareTo(queijo)) ){
                     //Multiplica-se a quantidade por 2/3
                     qtd = BigDecimal.valueOf(qtd.floatValue() * 2/3);
                     //Obtem-se o valor absoluto
@@ -82,13 +82,13 @@ public class OrderService {
 
         if (order != null){
             for (IngredientOrderVO ingredient: order.getIngredientsList()) {
-                if( ingredient.equals(hamburguer) && (ingredient.getQuantity() >= 3) ){
+                if( ingredient.compareTo(hamburguer) && (ingredient.getQuantity() >= 3) ){
                     ret.add("maisCarne");
-                }else if(ingredient.equals(queijo) && (ingredient.getQuantity() >= 3) ){
+                }else if(ingredient.compareTo(queijo) && (ingredient.getQuantity() >= 3) ){
                     ret.add("maisQueijo");
-                }else if(ingredient.equals(bacon) && ingredient.getQuantity() > 0) {
+                }else if(ingredient.compareTo(bacon) && ingredient.getQuantity() > 0) {
                     containBacon = true;
-                }else if(ingredient.equals(alface) && ingredient.getQuantity() > 0){
+                }else if(ingredient.compareTo(alface) && ingredient.getQuantity() > 0){
                     containAlface = true;
                 }
             }

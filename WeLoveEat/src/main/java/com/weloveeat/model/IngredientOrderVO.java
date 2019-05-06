@@ -18,11 +18,23 @@ public class IngredientOrderVO implements Serializable {
         return quantity;
     }
 
-    public void setQuantity(Integer quatity) {
-        this.quantity = quatity;
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
     public boolean equals(IngredientVO ingredientVO){
         return this.getIngredientVO().equals(ingredientVO);
+    }
+
+    public boolean compareTo(IngredientVO ingredientVO){
+        if (!ingredientVO.getId().equals(this.ingredientVO.getId())){
+            return false;
+        }else if(!ingredientVO.getUnitPrice().equals(this.ingredientVO.getUnitPrice())){
+            return false;
+        }else if (!ingredientVO.getName().equals(this.ingredientVO.getName())){
+            return false;
+        }
+
+        return true;
     }
 }
