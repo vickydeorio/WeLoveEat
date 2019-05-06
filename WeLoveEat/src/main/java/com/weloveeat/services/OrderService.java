@@ -82,13 +82,13 @@ public class OrderService {
 
         if (order != null){
             for (IngredientOrderVO ingredient: order.getIngredientsList()) {
-                if( ingredient.getIngredientVO().equals(hamburguer) && (ingredient.getQuantity() >= 3) ){
+                if( ingredient.equals(hamburguer) && (ingredient.getQuantity() >= 3) ){
                     ret.add("maisCarne");
-                }else if(ingredient.getIngredientVO().equals(queijo) && (ingredient.getQuantity() >= 3) ){
+                }else if(ingredient.equals(queijo) && (ingredient.getQuantity() >= 3) ){
                     ret.add("maisQueijo");
-                }else if(ingredient.getIngredientVO().equals(bacon) && ingredient.getQuantity() > 0) {
+                }else if(ingredient.equals(bacon) && ingredient.getQuantity() > 0) {
                     containBacon = true;
-                }else if(ingredient.getIngredientVO().equals(alface) && ingredient.getQuantity() > 0){
+                }else if(ingredient.equals(alface) && ingredient.getQuantity() > 0){
                     containAlface = true;
                 }
             }

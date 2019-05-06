@@ -57,11 +57,11 @@ public class OrderServiceTest {
     public void customizedOrderPrice(){
         OrderVO orderVO = new OrderVO();
 
-        orderVO.addIngredient(2,orderService.ingredientDAO.getIngredientByName("Alface"));
-        orderVO.addIngredient(2,orderService.ingredientDAO.getIngredientByName("Bacon"));
-        orderVO.addIngredient(2,orderService.ingredientDAO.getIngredientByName("Hambúrguer de carne"));
-        orderVO.addIngredient(2,orderService.ingredientDAO.getIngredientByName("Ovo"));
-        orderVO.addIngredient(2,orderService.ingredientDAO.getIngredientByName("Queijo"));
+        orderVO.addIngredient(2,orderService.getIngredient("Alface", null));
+        orderVO.addIngredient(2,orderService.getIngredient("Bacon", null));
+        orderVO.addIngredient(2,orderService.getIngredient("Hambúrguer de carne", null));
+        orderVO.addIngredient(2,orderService.getIngredient("Ovo", null));
+        orderVO.addIngredient(2,orderService.getIngredient("Queijo", null));
 
         orderService.calculate(orderVO);
 
@@ -73,9 +73,10 @@ public class OrderServiceTest {
     public void promoMuitaCarne(){
         OrderVO orderVO = new OrderVO();
 
-        //orderVO.addIngredient(0,orderService.getIngredient("Alface", null));
-        //orderVO.addIngredient(0,orderService.getIngredient("Bacon", null));
+        orderVO.addIngredient(0,orderService.getIngredient("Alface", null));
+        orderVO.addIngredient(0,orderService.getIngredient("Bacon", null));
         orderVO.addIngredient(3,orderService.getIngredient("Hambúrguer de carne", null));
+        orderVO.addIngredient(0,orderService.getIngredient("Ovo", null));
         orderVO.addIngredient(1,orderService.getIngredient("Queijo", null));
 
         orderService.calculate(orderVO);
@@ -87,11 +88,11 @@ public class OrderServiceTest {
     public void promoMuitoQueijo(){
         OrderVO orderVO = new OrderVO();
 
-        orderVO.addIngredient(0,orderService.ingredientDAO.getIngredientByName("Alface"));
-        orderVO.addIngredient(0,orderService.ingredientDAO.getIngredientByName("Bacon"));
-        orderVO.addIngredient(1,orderService.ingredientDAO.getIngredientByName("Hambúrguer de carne"));
-        orderVO.addIngredient(0,orderService.ingredientDAO.getIngredientByName("Ovo"));
-        orderVO.addIngredient(3,orderService.ingredientDAO.getIngredientByName("Queijo"));
+        orderVO.addIngredient(0,orderService.getIngredient("Alface", null));
+        orderVO.addIngredient(0,orderService.getIngredient("Bacon", null));
+        orderVO.addIngredient(1,orderService.getIngredient("Hambúrguer de carne", null));
+        orderVO.addIngredient(0,orderService.getIngredient("Ovo", null));
+        orderVO.addIngredient(3,orderService.getIngredient("Queijo", null));
 
         orderService.calculate(orderVO);
 
@@ -102,11 +103,11 @@ public class OrderServiceTest {
     public void promoLight(){
         OrderVO orderVO = new OrderVO();
 
-        orderVO.addIngredient(1,orderService.ingredientDAO.getIngredientByName("Alface"));
-        orderVO.addIngredient(0,orderService.ingredientDAO.getIngredientByName("Bacon"));
-        orderVO.addIngredient(1,orderService.ingredientDAO.getIngredientByName("Hambúrguer de carne"));
-        orderVO.addIngredient(0,orderService.ingredientDAO.getIngredientByName("Ovo"));
-        orderVO.addIngredient(1,orderService.ingredientDAO.getIngredientByName("Queijo"));
+        orderVO.addIngredient(1,orderService.getIngredient("Alface", null));
+        orderVO.addIngredient(0,orderService.getIngredient("Bacon", null));
+        orderVO.addIngredient(1,orderService.getIngredient("Hambúrguer de carne", null));
+        orderVO.addIngredient(0,orderService.getIngredient("Ovo", null));
+        orderVO.addIngredient(1,orderService.getIngredient("Queijo", null));
 
         orderService.calculate(orderVO);
 
