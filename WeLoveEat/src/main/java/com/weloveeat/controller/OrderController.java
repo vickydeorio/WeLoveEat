@@ -24,17 +24,20 @@ public class OrderController {
     @GetMapping("/menuorders")
     public @ResponseBody
     List<OrderVO> getAllMenuOrders() {
+
         return orderService.getAllMenuOrders();
     }
 
     @GetMapping("/ingredients")
     public @ResponseBody
     List<IngredientVO> getAllIngredients() {
+
         return orderService.getAllIngredients();
     }
 
     @GetMapping("/optionsname")
     public @ResponseBody List<String> getAllMenuOrdersName(){
+
         return orderService.getAllMenuOrdersName();
     }
 
