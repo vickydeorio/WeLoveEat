@@ -4,8 +4,8 @@ Esta aplicação web tem como objetivo satisfazer as necessidades de uma startup
 
 
 # Requer
-- Java 8
-- Maven
+-> Java 8
+-> Maven
 
 
 ## Instruções
