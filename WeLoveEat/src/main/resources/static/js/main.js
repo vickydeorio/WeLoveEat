@@ -2,7 +2,6 @@ var orderVO = {};
 var newOrderVO = {};
 
 $(document).ready(function () {
-
     /* Página se inicia apenas com welcomeMensage e não a seção de pedido/edição */
     $("#edit").hide();
     $("#menuOptions").hide();
@@ -114,7 +113,6 @@ function updateOrder(order) {
 }
 
 function getOrder(name) {
-
     $.ajax({
         type: "POST",
         contentType: "application/json",
