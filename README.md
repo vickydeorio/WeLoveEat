@@ -1,5 +1,5 @@
 # WeLoveEat!
-Esta aplicação web tem como objetivo satisfazer as necessidades de uma startup do ramo alimentício. O backend do projeto foi feito utilizando SpringBoot e sua principal função é realizar a lógica por trás do cálculo dos valores de cada lanche e considera as exceções (promoções) e os impactos que causa no valor de cada lanche. Existem os dados dos ingredientes(e seus respectivos valores unitários), e opções de lanche do menu(com seu respectivo preço, nome e ingredientes) que ficam persistidos na memória. 
+Esta aplicação web tem como objetivo satisfazer as necessidades de uma startup do ramo alimentício. O backend do projeto foi feito utilizando SpringBoot e sua principal função é realizar a lógica por trás do cálculo dos valores de cada lanche e considera as exceções (promoções) e os impactos que causa no valor de cada lanche. Existem os dados dos ingredientes(e seus respectivos valores unitários), e opções de lanche do menu(com seu respectivo preço, nome e ingredientes) que ficam persistidos na memória
 
 
 
